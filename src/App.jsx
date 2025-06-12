@@ -2,7 +2,7 @@ import Header from "./components/Header.jsx";
 import Slot from "./components/Slot.jsx";
 import Button from "./components/Button.jsx";
 import Card from "./components/Card.jsx";
-import Inv from "./components/Inventario.jsx";
+import {Inv, Draggable} from "./components/Inventario.jsx";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Button />
       <Card />
       <Inv />
+      <Draggable />
     </div>
   );
 }

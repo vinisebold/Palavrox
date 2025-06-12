@@ -1,4 +1,6 @@
-function Inv() {
+import {useDraggable} from '@dnd-kit/core';
+
+export function Inv() {
   return (
     <section class="p-5 mx-auto max-w-4xl my-10 bg-white border border-gray-300 rounded-xl shadow-lg inset-shadow-sm">
       <ul class="grid grid-cols-7 gap-4 place-items-center">
@@ -29,4 +31,19 @@ function Inv() {
   );
 }
 
-export default Inv;
+export function Draggable(props) {
+  const {attributes, listeners, setNodeRef, transform} = useDraggable({
+    id: 'draggable',
+  });
+  const style = transform ? {
+    transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+  } : undefined;
+
+  
+  return (
+    <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
+      {props.children}
+      <li class="w-20 h-20 bg-yellow-400 rounded-lg cursor-move" id="draggable"></li>
+    </button>
+  );
+}
