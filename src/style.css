@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
-#silaba {
+.silaba {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   font-size: 30px;
   font-weight: 800;
+  background-color: aquamarine;
+  touch-action: none;
+  
 }
