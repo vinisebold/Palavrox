@@ -1,7 +1,18 @@
 import React from "react";
 import { useDroppable, useDraggable } from "@dnd-kit/core";
 
-const Slot = ({ id, silaba }) => {
+// Definindo o tipo da sílaba
+interface Silaba {
+  id: number;
+  title: string;
+}
+
+interface SlotProps {
+  id: string;
+  silaba: Silaba | null;
+}
+
+const Slot: React.FC<SlotProps> = ({ id, silaba }) => {
   const { setNodeRef, isOver } = useDroppable({ id });
 
   return (
@@ -16,12 +27,17 @@ const Slot = ({ id, silaba }) => {
   );
 };
 
-const SilabaInSlot = ({ silaba}) => {
+interface SilabaInSlotProps {
+  silaba: Silaba;
+  slotId: string;
+}
+
+const SilabaInSlot: React.FC<SilabaInSlotProps> = ({ silaba }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useDraggable({
     id: silaba.id,
   });
 
-  const style = {
+  const style: React.CSSProperties = {
     transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
     transition,
     opacity: isDragging ? 0.5 : 1,

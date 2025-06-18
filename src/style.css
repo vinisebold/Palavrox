@@ -9,5 +9,5 @@
   font-weight: 800;
   background-color: aquamarine;
   touch-action: none;
-  
+  transition:all 0.5s;
 }

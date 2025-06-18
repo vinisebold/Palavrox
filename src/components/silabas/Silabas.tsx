@@ -3,10 +3,15 @@ import "../../style.css";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-export const Silabas = ({ id, title }) => {
+interface SilabaProps {
+  id: number;
+  title: string;
+}
+
+export const Silabas: React.FC<SilabaProps> = ({ id, title }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
-  const style = {
+  const style: React.CSSProperties = {
     transition,
     transform: CSS.Transform.toString(transform),
     opacity: isDragging ? 0 : 1,

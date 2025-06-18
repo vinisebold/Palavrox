@@ -1,0 +1,145 @@
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Slot from "./components/Slot";
+import Button from "./components/Button";
+import Card from "./components/Card";
+import { Inv } from "./components/Inventario";
+import {
+  DndContext,
+  DragOverlay,
+  PointerSensor,
+  TouchSensor,
+  pointerWithin,
+  useSensor,
+  useSensors,
+  DragStartEvent,
+  DragEndEvent,
+} from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
+
+// Definindo tipos para sílabas e slots
+interface Silaba {
+  id: number;
+  title: string;
+}
+
+interface SlotType {
+  id: string;
+  silaba: Silaba | null;
+}
+
+function App() {
+  const [silabas, setSilabas] = useState<Silaba[]>([
+    { id: 1, title: "BA" },
+    { id: 2, title: "BE" },
+    { id: 3, title: "BI" },
+    { id: 4, title: "BO" },
+    { id: 5, title: "BU" },
+    { id: 6, title: "GA" },
+    { id: 7, title: "GE" },
+    { id: 8, title: "GI" },
+    { id: 9, title: "GO" },
+    { id: 10, title: "GU" },
+    { id: 11, title: "PA" },
+    { id: 12, title: "PE" },
+    { id: 13, title: "PI" },
+    { id: 14, title: "PO" },
+  ]);
+
+  const [slots, setSlots] = useState<SlotType[]>([
+    { id: "slot-1", silaba: null },
+    { id: "slot-2", silaba: null },
+  ]);
+
+  const [activeSilaba, setActiveSilaba] = useState<Silaba | null>(null);
+
+  // Retorna o índice da sílaba no array
+  const getSilabaPos = (id: number) => silabas.findIndex((s) => s.id === id);
+
+  // Tipagem para o evento de drag start
+  const handleDragStart = ({ active }: DragStartEvent) => {
+    const fromInv = silabas.find((s) => s.id === active.id);
+    const fromSlot = slots.find((s) => s.silaba?.id === active.id)?.silaba;
+    setActiveSilaba(fromInv || fromSlot || null);
+  };
+
+  // Tipagem para o evento de drag end
+  const handleDragEnd = ({ active, over }: DragEndEvent) => {
+    if (!over) {
+      setActiveSilaba(null);
+      return;
+    }
+
+    const activeId = active.id;
+    const overId = over.id;
+
+    // Colocar no slot
+    if (typeof activeId === "number" && typeof overId === "string" && overId.startsWith("slot-")) {
+      const dragged = silabas.find((s) => s.id === activeId);
+      if (dragged) {
+        setSlots((prev) =>
+          prev.map((slot) => (slot.id === overId ? { ...slot, silaba: dragged } : slot))
+        );
+        setSilabas((prev) => prev.filter((s) => s.id !== activeId));
+      }
+    }
+    // Voltar ao inventário
+    else if (
+      typeof activeId === "number" &&
+      slots.find((s) => s.silaba?.id === activeId)
+    ) {
+      const origin = slots.find((s) => s.silaba?.id === activeId);
+      if (origin) {
+        setSlots((prev) =>
+          prev.map((slot) =>
+            slot.id === origin.id ? { ...slot, silaba: null } : slot
+          )
+        );
+        setSilabas((prev) => [...prev, origin.silaba!]);
+      }
+    }
+    // Reordenação no inventário
+    else if (
+      typeof activeId === "number" &&
+      typeof overId === "number" &&
+      activeId !== overId
+    ) {
+      const oldIndex = getSilabaPos(activeId);
+      const newIndex = getSilabaPos(overId);
+      setSilabas((prev) => arrayMove(prev, oldIndex, newIndex));
+    }
+
+    setActiveSilaba(null);
+  };
+
+  const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
+
+  return (
+    <DndContext
+      sensors={sensors}
+      collisionDetection={pointerWithin}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
+      <Header />
+      <div className="flex justify-center items-center gap-5 p-8">
+        {slots.map((slot) => (
+          <Slot key={slot.id} id={slot.id} silaba={slot.silaba} />
+        ))}
+      </div>
+      <Button />
+      <Card />
+      <Inv silabas={silabas} />
+
+      <DragOverlay wrapperElement="div">
+        {activeSilaba && (
+          <div className="silaba w-20 h-20 rounded-xl flex items-center justify-center cursor-grabbing transform-y-5 shadow-lg  transition-all duration-300 ease-in-out scale-105">
+            {activeSilaba.title}
+          </div>
+        )}
+      </DragOverlay>
+    </DndContext>
+  );
+}
+
+export default App;
