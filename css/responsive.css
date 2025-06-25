@@ -1,0 +1,40 @@
+/* Responsive Adjustments for Modern Layout */
+@media (max-width: 900px) {
+  .inventory-layout {
+    flex-direction: column;
+  }
+
+  .dictionary-modern {
+    max-width: 100%;
+  }
+
+  .inventory-grid-modern {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .tabs-container-modern {
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-modern {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .crafting-section-modern {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inventory-grid-modern {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+  }
+}

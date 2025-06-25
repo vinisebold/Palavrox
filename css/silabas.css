@@ -1,0 +1,53 @@
+/* Modern Syllable Style */
+.syllable-modern {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  min-width: 50px;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.syllable-modern:active,
+.ui-draggable-dragging .syllable-modern {
+  cursor: grabbing;
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* Color Variants */
+.syllable-modern[data-type="B"] {
+  background-color: #3498db;
+}
+.syllable-modern[data-type="C"] {
+  background-color: #2ecc71;
+}
+.syllable-modern[data-type="D"] {
+  background-color: #e74c3c;
+}
+.syllable-modern[data-type="F"] {
+  background-color: #f1c40f;
+}
+.syllable-modern[data-type="G"] {
+  background-color: #9b59b6;
+}
+.syllable-modern[data-type="L"] {
+  background-color: #e67e22;
+}
+.syllable-modern[data-type="M"] {
+  background-color: #a18479;
+}
+.syllable-modern[data-type="P"] {
+  background-color: #f164a8;
+}
+.syllable-modern[data-type="S"] {
+  background-color: #afb7b8;
+}
+.syllable-modern[data-type="T"] {
+  background-color: #1abc9c;
+}

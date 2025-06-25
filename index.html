@@ -1,13 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="src/style.css" />
+    <title>Montar Palavras - Moderno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
   </head>
 
-  <div id="root"></div>
+  <body>
+    <div class="tabs-container-modern">
+      <button class="tab-modern active" data-slots="2">2 Slots</button>
+      <button class="tab-modern" data-slots="3">3 Slots</button>
+      <a href="../../index.html" class="tab-icon">?</a>
+      <a href="../../index.html" class="tab-icon">✕</a>
+    </div>
 
-  <script type="module" src="src/main.jsx"></script>
+    <div class="inventory-layout">
+      <div class="dictionary-modern">
+        <div class="dictionary-header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Dicionário
+        </div>
+
+        <div class="search-modern">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="search-input" placeholder="Pesquise..." />
+        </div>
+
+        <div class="dictionary-grid">
+          <div class="dictionary-slot" id="dicionario1"></div>
+          <div class="dictionary-slot" id="dicionario2"></div>
+          <div class="dictionary-slot" id="dicionario3"></div>
+          <div class="dictionary-slot" id="dicionario4"></div>
+          <div class="dictionary-slot" id="dicionario5"></div>
+          <div class="dictionary-slot" id="dicionario6"></div>
+          <div class="dictionary-slot" id="dicionario7"></div>
+          <div class="dictionary-slot" id="dicionario8"></div>
+          <div class="dictionary-slot" id="dicionario9"></div>
+        </div>
+      </div>
+
+      <div class="game-modern">
+        <div class="game-header">Jogo</div>
+
+        <div class="crafting-section-modern">
+          <div class="crafting-grid-modern" id="craft-grid"></div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="arrow-icon"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+
+          <div class="result-slot-modern">
+            <span id="resultado"></span>
+          </div>
+        </div>
+
+        <div class="inventory-section">
+          <div class="inventory-header">Inventário</div>
+          <div class="inventory-grid-modern">
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="B">BA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="B">BE</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="B">BO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="C">CA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="C">CO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="D">DA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="D">DO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="F">FA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="G">GA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="G">GO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="L">LA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="L">LO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="M">MA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="P">PA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="P">PO</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="S">SA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="T">TA</div>
+            </div>
+            <div class="inventory-slot">
+              <div class="syllable-modern" data-type="T">TO</div>
+            </div>
+            <div class="inventory-slot"></div>
+            <div class="inventory-slot"></div>
+            <div class="inventory-slot"></div>
+            <div class="inventory-slot"></div>
+            <div class="inventory-slot"></div>
+            <div class="inventory-slot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="action-button" onclick="montarPalavra()">Montar Palavra</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/mapaPalavras.js"></script>
+    <script src="../../js/mainPort.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../../js/switchTab.js"></script>
+  </body>
 </html>
