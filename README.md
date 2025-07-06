@@ -37,7 +37,7 @@
 Veja como é simples e divertido aprender com o Palavrox. O jogador seleciona as sílabas do inventário, arrasta para a área de montagem e, ao formar a palavra "BOLA", a imagem de uma bola aparece na tela!
 
 <p align="center"\>
-<img src="[https://github.com/vinisebold/Palavrox/tree/main/assets/tutorial.gif](https://github.com/vinisebold/Palavrox/tree/main/assets/tutorial.gif)" alt="Demonstração do Jogo" width="600"\>
+<img src="[https://raw.githubusercontent.com/vinisebold/Palavrox/e175d9421ee4cc9bdc405ad68f8e54fe7bd83b0c/assets/tutorial.gif?token=GHSAT0AAAAAADG3BTYLOG7YQ4CN56KEUNJ22DK6A5A](https://raw.githubusercontent.com/vinisebold/Palavrox/e175d9421ee4cc9bdc405ad68f8e54fe7bd83b0c/assets/tutorial.gif?token=GHSAT0AAAAAADG3BTYLOG7YQ4CN56KEUNJ22DK6A5A)" alt="Demonstração do Jogo" width="600"\>
 </p\>
 
 ## 🛠️ Tecnologias
