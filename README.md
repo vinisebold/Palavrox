@@ -34,8 +34,6 @@
 
 ## 🖼️ Demonstração
 
-Veja como é simples e divertido aprender com o Palavrox. O jogador seleciona as sílabas do inventário, arrasta para a área de montagem e, ao formar a palavra "BOLA", a imagem de uma bola aparece na tela!
-
 <p align="center">
   <img src="assets/tutorial.gif" alt="Demonstração do Jogo" width="600">
 </p>
