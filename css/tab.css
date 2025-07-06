@@ -1,5 +1,5 @@
 /* Modern Tab Container */
-.tabs-container-modern {
+.tabs-container {
   display: flex;
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.tab-modern {
+.tab {
   flex: 1;
   text-align: center;
   padding: 12px 0;
@@ -25,7 +25,7 @@
   text-decoration: none;
 }
 
-.tab-modern.active {
+.tab.active {
   background-color: var(--accent-color);
   color: white;
   box-shadow: var(--shadow-sm);

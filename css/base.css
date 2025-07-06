@@ -11,7 +11,7 @@
   --secondary-bg: #e9ecef;
   --card-bg: #ffffff;
   --border-color: #dee2e6;
-  --accent-color: #4361ee;
+  --accent-color: #667ff1;
   --text-primary: #212529;
   --text-secondary: #6c757d;
   --success-color: #38b000;
@@ -21,7 +21,7 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --transition: all 0.2s ease;
+  --transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 /* Global Reset */

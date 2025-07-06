@@ -1,13 +1,12 @@
 function initializeDragDrop() {
   const $zonasSoltar = $(".zona-soltar");
-  const $slots = $(".slot");
+  const $slots = $(".inventory-slot");
   const SILABA_SELECTOR = ".silaba";
 
   const DEFAULT_SILABA_STYLE = {
     top: "",
     left: "",
     position: "",
-    display: "flex",
   };
 
   function onDragStart(event, ui) {
@@ -30,6 +29,8 @@ function initializeDragDrop() {
       helper: "clone",
       revert: "invalid",
       opacity: 1,
+      cursorAt: { top: 24, left: 35 },
+      appendTo: "body",
       start: onDragStart,
       drag: function (event, ui) {
         const $this = $(this);
@@ -109,7 +110,7 @@ function montarPalavra() {
     // Define o conteúdo do resultado
     let conteudoResultado = "";
     if (PALAVRAS_VALIDAS[palavraMontada]) {
-      conteudoResultado = `<img class="icone" src="../../assets/icons/${PALAVRAS_VALIDAS[palavraMontada]}" alt="${palavraMontada}" title="${palavraMontada}">`;
+      conteudoResultado = `<img class="dicionario-icon" src="../../assets/icons/${PALAVRAS_VALIDAS[palavraMontada]}" alt="${palavraMontada}" title="${palavraMontada}" >`;
     } else {
       conteudoResultado = "<strong>" + palavraMontada + "</strong>";
     }
@@ -129,9 +130,7 @@ function montarPalavra() {
 function adicionarAoDicionario(conteudo) {
   // Verifica se ainda há espaço no dicionário
   if (proximaPosicaoDicionario <= 12) {
-    const espacoDicionario = document.getElementById(
-      "dicionario" + proximaPosicaoDicionario
-    );
+    const espacoDicionario = document.getElementById("dicionario" + proximaPosicaoDicionario);
 
     // Cria um elemento para o dicionário
     const elementoDicionario = document.createElement("div");

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 1; i <= n; i++) {
       const slot = document.createElement("div");
-      slot.className = "slot zona-soltar";
+      slot.className = "crafting-slot zona-soltar";
       slot.id = `silaba${i}`;
       grid.appendChild(slot);
     }

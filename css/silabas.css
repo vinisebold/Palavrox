@@ -1,5 +1,5 @@
 /* Modern Syllable Style */
-.syllable-modern {
+.silaba {
   font-size: 18px;
   font-weight: 700;
   color: white;
@@ -10,44 +10,43 @@
   cursor: grab;
   user-select: none;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.syllable-modern:active,
-.ui-draggable-dragging .syllable-modern {
+.silaba:active,
+.ui-draggable-dragging .silaba {
   cursor: grabbing;
-  transform: scale(0.95);
   opacity: 0.8;
 }
 
 /* Color Variants */
-.syllable-modern[data-type="B"] {
+.silaba[data-type="B"] {
   background-color: #3498db;
 }
-.syllable-modern[data-type="C"] {
+.silaba[data-type="C"] {
   background-color: #2ecc71;
 }
-.syllable-modern[data-type="D"] {
+.silaba[data-type="D"] {
   background-color: #e74c3c;
 }
-.syllable-modern[data-type="F"] {
+.silaba[data-type="F"] {
   background-color: #f1c40f;
 }
-.syllable-modern[data-type="G"] {
+.silaba[data-type="G"] {
   background-color: #9b59b6;
 }
-.syllable-modern[data-type="L"] {
+.silaba[data-type="L"] {
   background-color: #e67e22;
 }
-.syllable-modern[data-type="M"] {
+.silaba[data-type="M"] {
   background-color: #a18479;
 }
-.syllable-modern[data-type="P"] {
+.silaba[data-type="P"] {
   background-color: #f164a8;
 }
-.syllable-modern[data-type="S"] {
+.silaba[data-type="S"] {
   background-color: #afb7b8;
 }
-.syllable-modern[data-type="T"] {
+.silaba[data-type="T"] {
   background-color: #1abc9c;
 }
