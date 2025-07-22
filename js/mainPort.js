@@ -155,7 +155,7 @@ function montarPalavra() {
     // Define o conteúdo do resultado
     let conteudoResultado = "";
     if (PALAVRAS_VALIDAS[palavraMontada]) {
-      conteudoResultado = `<img class="dicionario-icon" src="../../assets/icons/${PALAVRAS_VALIDAS[palavraMontada]}" alt="${palavraMontada}" title="${palavraMontada}" >`;
+      conteudoResultado = `<img class="dicionario-icon" src="assets/icons/${PALAVRAS_VALIDAS[palavraMontada]}" alt="${palavraMontada}" title="${palavraMontada}" >`;
     } else {
       conteudoResultado = "<strong>" + palavraMontada + "</strong>";
     }
