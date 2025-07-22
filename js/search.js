@@ -21,7 +21,7 @@ $(function () {
           const $wrapper = $("<div>").addClass("i");
           const $icone = $(`
             <div class="dicionario-slot">
-              <img class="search-icon" src="../../assets/icons/${imgSrc}" alt="${palavra}" title="${palavra}">
+              <img class="search-icon" src="assets/icons/${imgSrc}" alt="${palavra}" title="${palavra}">
             </div>
           `);
           $wrapper.append($icone);
