@@ -1,10 +1,9 @@
-/* Responsive Adjustments for Modern Layout */
 @media (max-width: 900px) {
   .inventory-layout {
     flex-direction: column;
   }
 
-  .dictionary {
+  .dicionario {
     max-width: 100%;
   }
 

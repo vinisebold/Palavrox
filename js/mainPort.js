@@ -103,7 +103,7 @@ function initializeDragDrop() {
     $slotDestino.addClass("slot-success");
     setTimeout(() => {
       $slotDestino.removeClass("slot-success");
-    }, 600);
+    }, 1900);
   }
 
   function configurarDroppable() {

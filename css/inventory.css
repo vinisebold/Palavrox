@@ -15,7 +15,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .dicionario-header {
@@ -52,7 +52,7 @@
 
 .dicionario-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   gap: 15px;
   margin-top: 10px;
 }
@@ -66,12 +66,12 @@
   justify-content: center;
   transition: var(--transition);
   border: 2px solid transparent;
+  max-height: 70px;
 }
 
 .dicionario-slot:hover {
   background-color: var(--slot-hover);
   box-shadow: var(--shadow-sm);
-  border-color: var(--accent-color);
 }
 
 .dicionario-icon {
@@ -85,6 +85,7 @@
   height: 60px;
   object-fit: contain;
   filter: grayscale(100%);
+  opacity: 0.5;
 }
 
 /* Seção do Jogo */
