@@ -32,7 +32,7 @@
   display: flex;
   align-items: center;
   background-color: var(--secondary-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: 10px 15px;
   margin-bottom: 20px;
 }
@@ -60,7 +60,7 @@
 .dicionario-slot {
   aspect-ratio: 1;
   background-color: var(--secondary-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,7 +130,7 @@
 .crafting-slot {
   aspect-ratio: 1;
   background-color: var(--secondary-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +148,7 @@
   width: 100px;
   height: 100px;
   background-color: var(--secondary-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,7 +177,7 @@
 .inventory-slot {
   aspect-ratio: 1;
   background-color: var(--secondary-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;

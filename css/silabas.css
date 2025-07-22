@@ -2,17 +2,18 @@
 .silaba {
   font-size: 18px;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
   padding: 10px;
-  border-radius: var(--radius-md);
   min-width: 50px;
   text-align: center;
   cursor: grab;
   user-select: none;
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, opacity 0.2s ease;
-}
 
+  clip-path: url(#squircleClip);
+  border-radius: var(--radius-sm);
+}
 .silaba:active,
 .ui-draggable-dragging .silaba {
   cursor: grabbing;
