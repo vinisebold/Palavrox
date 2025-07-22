@@ -50,3 +50,60 @@
 .silaba[data-type="T"] {
   background-color: #1abc9c;
 }
+
+.silaba {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slot-soltar-hover {
+    background-color: #e0f7fa;
+    border: 2px dashed #0288d1;
+    transition: all 0.2s ease;
+}
+
+/* Transições suaves para elementos básicos */
+.silaba {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+/* Estado durante o drag */
+.being-dragged {
+  transform: scale(0.95);
+  filter: brightness(1.1);
+}
+
+/* Clone durante o arrasto */
+.dragging-clone {
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+  transform: rotate(-2deg) scale(1.05);
+  transition: transform 0.2s ease-out;
+}
+
+/* Hover suave nos slots */
+.slot-hover-smooth {
+  transform: scale(1.02);
+  background-color: rgba(74, 144, 226, 0.1);
+  border: 2px dashed rgba(74, 144, 226, 0.4);
+  transition: all 0.25s ease-out;
+}
+
+/* Feedback de sucesso */
+.slot-success {
+  background-color: rgba(46, 213, 115, 0.15);
+  border: 2px solid rgba(46, 213, 115, 0.4);
+  animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(46, 213, 115, 0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

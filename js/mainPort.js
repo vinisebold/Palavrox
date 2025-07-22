@@ -2,7 +2,6 @@ function initializeDragDrop() {
   const $zonasSoltar = $(".zona-soltar");
   const $slots = $(".inventory-slot");
   const SILABA_SELECTOR = ".silaba";
-
   const DEFAULT_SILABA_STYLE = {
     top: "",
     left: "",
@@ -13,22 +12,33 @@ function initializeDragDrop() {
     const $this = $(this);
     $this.data("originalParent", $this.parent());
     $this.data("animationPlayed", false);
-    $this.hide();
+
+    $this.animate({ opacity: 0 }, 30);
+    $this.addClass("being-dragged");
   }
 
   function onDragStop(event, ui) {
     const $this = $(this);
     if (!$this.data("dropped")) {
-      $this.show();
+      $this.animate({ opacity: 1 }, 300);
     }
+    $this.removeClass("being-dragged");
     $this.data("dropped", false);
   }
 
   function configurarDraggable() {
     $(SILABA_SELECTOR).draggable({
       helper: "clone",
-      revert: "invalid",
-      opacity: 1,
+      revert: function(droppableObj) {
+        if (!droppableObj) {
+          const $original = this;
+          $original.animate({ opacity: 1 }, 430);
+          return true;
+        }
+        return false;
+      },
+      revertDuration: 550,
+      opacity: 0.9,
       cursorAt: { top: 24, left: 35 },
       appendTo: "body",
       start: onDragStart,
@@ -38,7 +48,7 @@ function initializeDragDrop() {
 
         if ($this.data("animationPlayed")) return;
         $this.data("animationPlayed", true);
-
+        $clone.addClass("dragging-clone");
         reanimar(ui.helper, "jelly");
       },
       stop: onDragStop,
@@ -47,6 +57,7 @@ function initializeDragDrop() {
 
   function handleDrop(event, ui) {
     console.log("DROP!");
+    $zonasSoltar.add($slots).removeClass("slot-hover-smooth slot-soltar-hover");
     const $draggedSilaba = ui.draggable;
     const $slotDestino = $(this);
     const $slotOrigem = $draggedSilaba.data("originalParent");
@@ -54,17 +65,45 @@ function initializeDragDrop() {
     $draggedSilaba.data("dropped", true);
 
     const $existingSilaba = $slotDestino.find(SILABA_SELECTOR);
+
     if ($existingSilaba.length > 0) {
-      $existingSilaba.detach().css(DEFAULT_SILABA_STYLE);
-      reanimar($existingSilaba, "jelly-reverse");
-      $slotOrigem.append($existingSilaba);
+      $existingSilaba.animate({ opacity: 0, scale: 0.8 }, 0, function () {
+        $existingSilaba.detach().css(DEFAULT_SILABA_STYLE);
+
+        $slotOrigem.append($existingSilaba);
+        $existingSilaba.css({ opacity: 0, transform: "scale(0.8)" });
+        $existingSilaba.animate(
+          {
+            opacity: 1,
+            scale: 1,
+          },
+          350,
+          function () {
+            reanimar($existingSilaba, "jelly-reverse");
+          }
+        );
+      });
     }
 
     $draggedSilaba.detach().css(DEFAULT_SILABA_STYLE);
+    $draggedSilaba.css({ opacity: 0, transform: "scale(0.8)" });
     $slotDestino.append($draggedSilaba);
-    $draggedSilaba.show();
 
-    reanimar($draggedSilaba, "jelly-reverse");
+    $draggedSilaba.animate(
+      {
+        opacity: 1,
+        scale: 1,
+      },
+      100,
+      function () {
+        reanimar($draggedSilaba, "jelly-reverse");
+      }
+    );
+
+    $slotDestino.addClass("slot-success");
+    setTimeout(() => {
+      $slotDestino.removeClass("slot-success");
+    }, 600);
   }
 
   function configurarDroppable() {
@@ -73,6 +112,12 @@ function initializeDragDrop() {
       hoverClass: "slot-soltar-hover",
       tolerance: "pointer",
       drop: handleDrop,
+      over: function (event, ui) {
+        $(this).addClass("slot-hover-smooth");
+      },
+      out: function (event, ui) {
+        $(this).removeClass("slot-hover-smooth");
+      },
     });
   }
 

@@ -8,6 +8,7 @@
   margin-bottom: 30px;
   max-width: 600px;
   width: 100%;
+  gap: 10px;
 }
 
 .tab {
@@ -23,6 +24,10 @@
   border-radius: var(--radius-sm);
   transition: var(--transition);
   text-decoration: none;
+}
+
+.tab:hover{
+  background-color: var(--secondary-bg);
 }
 
 .tab.active {
