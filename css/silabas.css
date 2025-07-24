@@ -17,7 +17,6 @@
 .silaba:active,
 .ui-draggable-dragging .silaba {
   cursor: grabbing;
-  opacity: 0.8;
 }
 
 /* Color Variants */
@@ -75,8 +74,9 @@
 
 .dragging-clone {
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
-  transform: rotate(-2deg) scale(1.05);
+  transform: rotate(-5deg) scale(1.05);
   transition: transform 0.2s ease-out;
+  cursor: grabbing;
 }
 
 .slot-hover-smooth {
